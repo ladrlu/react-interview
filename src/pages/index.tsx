@@ -1,13 +1,6 @@
 import Head from "next/head";
 import { Container, Typography, Box } from "@mui/material";
-import { EmployeeAdd } from "@/components/employee/AddEmployee";
-import { TeamAdd } from "@/components/teams/TeamAdd";
-import { Roboto } from "next/font/google";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: "400",
-});
 export default function Home() {
   return (
     <>
@@ -17,7 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="md" className={roboto.className}>
+      <Container maxWidth="md">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
             Zadání Frontend Úkolu 2.0
@@ -51,7 +44,7 @@ export default function Home() {
             <ol>
               <li>
                 Umožněte přidávání zaměstnanců a týmů (můžete použít
-                předpřipravené formuláře).
+                předpřipravené formuláře: TeamAdd.tsx, EmployeeAdd.tsx).
               </li>
               <li>
                 Umožněte hromadné mazání zaměstnanců na základě výběru jednoho
@@ -79,7 +72,14 @@ export default function Home() {
           </Typography>
           <Typography variant="body1" gutterBottom>
             Pro API s databází využijte Supabase.com. Dokumentace k API je
-            dostupná na GitHubu.
+            dostupná na{" "}
+            <a
+              href="https://github.com/ladrlu/react-interview/blob/main/README.md#dokumentace-api"
+              target="_blank"
+            >
+              GitHubu
+            </a>
+            .
           </Typography>
           <Typography variant="h6" component="h2" gutterBottom>
             Časová náročnost:
@@ -95,8 +95,6 @@ export default function Home() {
             <a href="mailto:matuszek@iresoft.cz">matuszek@iresoft.cz</a>
           </Typography>
         </Box>
-        <EmployeeAdd />
-        <TeamAdd />
       </Container>
     </>
   );

@@ -1,17 +1,48 @@
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import Stack from "@mui/material/Stack";
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import {
   List,
   ListItem,
   ListItemButton,
+  ListItemIcon,
   ListItemText,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { styled } from "@mui/material/styles";
+import GroupIcon from "@mui/icons-material/Group";
+import { alpha } from "@mui/system/colorManipulator";
+
+const NavItem = styled(ListItemButton)(({ theme }) => ({
+  color: theme.palette.common.white,
+  fontWeight: theme.typography.fontWeightRegular,
+  justifyContent: "flex-start",
+  textAlign: "left",
+  padding: theme.spacing(1),
+  textTransform: "none",
+  borderRadius: "0px",
+  width: "100%",
+  textDecoration: "none",
+  a: {
+    display: "block",
+    textDecoration: "none",
+  },
+  svg: {
+    fill: theme.palette.common.white,
+  },
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.secondary.main, 0.7),
+  },
+}));
+
+const StyledListItem = styled(ListItem)(({ theme }) => ({
+  padding: 0,
+  display: "block",
+}));
 
 interface SideBarProps {
   drawerWidth: number;
@@ -42,8 +73,8 @@ export const SideBar = ({
         sx={{
           "& .MuiDrawer-paper": {
             width: drawerWidth,
-            background: theme.palette.grey[800],
-            color: theme.palette.grey[50],
+            background: theme.palette.background.sidebar,
+            color: theme.palette.common.white,
           },
         }}
       >
@@ -52,13 +83,27 @@ export const SideBar = ({
         </Box>
 
         <Divider sx={{ backgroundColor: theme.palette.grey[100] }} />
-        <List>
-          <ListItemButton component={Link} href="/">
-            <ListItemText primary="Zadání" />
-          </ListItemButton>
-          <ListItemButton component={Link} href="/teams">
-            <ListItemText primary="Týmy" />
-          </ListItemButton>
+        <List sx={{ a: { textDecoration: "none" } }}>
+          <StyledListItem>
+            <Link href="/" passHref>
+              <NavItem>
+                <ListItemIcon>
+                  <AssignmentIcon />
+                </ListItemIcon>
+                <ListItemText primary="Zadání" />
+              </NavItem>
+            </Link>
+          </StyledListItem>
+          <StyledListItem>
+            <Link href="/teams" passHref>
+              <NavItem>
+                <ListItemIcon>
+                  <GroupIcon />
+                </ListItemIcon>
+                <ListItemText primary="Týmy" />
+              </NavItem>
+            </Link>
+          </StyledListItem>
         </List>
       </Drawer>
     </Box>

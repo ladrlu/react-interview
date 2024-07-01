@@ -13,7 +13,7 @@ interface TopBarProps {
 
 export const TopBar = ({ drawerWidth, handleDrawerToggle }: TopBarProps) => {
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.only("md"));
+  const isMd = useMediaQuery(theme.breakpoints.up("md"));
   return !isMd ? (
     <AppBar
       position="fixed"
@@ -21,7 +21,7 @@ export const TopBar = ({ drawerWidth, handleDrawerToggle }: TopBarProps) => {
         display: { xs: "block", md: "none" },
         width: { md: `calc(100% - ${drawerWidth}px)` },
         ml: { md: `${drawerWidth}px` },
-        background: theme.palette.grey[800],
+        background: theme.palette.background.sidebar,
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>

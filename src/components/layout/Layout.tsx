@@ -10,6 +10,12 @@ const drawerWidth = 240;
 interface LayoutProps {
   children: ReactNode;
 }
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const Layout = ({ children }: LayoutProps) => {
   const theme = useTheme();
@@ -21,6 +27,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <Box
+      className={roboto.className}
       sx={{
         display: "flex",
         backgroundColor: (theme) => theme.palette.grey[100],
