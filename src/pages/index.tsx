@@ -57,7 +57,7 @@ export default function Home() {
           </Typography>
           <ul>
             <li>
-              Navrhněte vizuálně přitažlivý a responzivní design který bude
+              Navrhněte vizuálně přitažlivý a responzivní design, který bude
               dobře vypadat i na mobilních zařízeních.
             </li>
             <li>Měřte si čas.</li>
