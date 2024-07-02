@@ -17,11 +17,11 @@ import { FormError } from "../forms/FormError";
 import { FormSuccess } from "../forms/FormSuccess";
 
 const schema = yup.object().shape({
-  name: yup.string(),
-  surname: yup.string(),
-  team: yup.string().required("Team is required"),
-  position: yup.string().required("Position is required"),
-  startDate: yup.date().required("Start date is required"),
+  name: yup.string().required("Name is required"),
+  surname: yup.string().required("Surname is required"),
+  team: yup.string(),
+  position: yup.string(),
+  startDate: yup.date(),
   endDate: yup
     .date()
     .min(yup.ref("startDate"), "End date can't be before start date"),
