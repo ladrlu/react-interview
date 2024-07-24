@@ -92,7 +92,7 @@ export default function Home() {
           </Typography>
           <Typography variant="body1" gutterBottom>
             V případě nejasností se obraťte na{" "}
-            <a href="mailto:matuszek@iresoft.cz">matuszek@iresoft.cz</a>
+            <a href="mailto:ladrova@iresoft.cz">ladrova@iresoft.cz</a>
           </Typography>
         </Box>
       </Container>
